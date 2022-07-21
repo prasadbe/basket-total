@@ -7,13 +7,13 @@ const Products = require('./products');
 const Basket = require('./basket');
 
 let products = new Products();
-products.add('RO1','Red Plate',32.95, {
+products.add('R01','Red Plate',32.95, {
     type: 'any',
     percentage: '50'
 });
 
-products.add('GO1','Green Plate',24.95);
-products.add( 'BO1', 'Blue Plate', 7.95);
+products.add('G01','Green Plate',24.95);
+products.add( 'B01', 'Blue Plate', 7.95);
 
 
 
