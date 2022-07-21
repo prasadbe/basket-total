@@ -55,10 +55,6 @@ class Basket {
             return v;
         });
 
-        if(this.couponApplied && this.offer == 0) {
-            this.error.coupon = 'Coupon Not Valid';
-        }
-
         //delivery calcualtion
         this.delivery(this.subtotal-this.offer);
         this.total = this.subtotal+this.deliveryCharge-this.offer;
