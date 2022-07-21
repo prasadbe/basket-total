@@ -61,7 +61,7 @@ class Basket {
         }
 
         //delivery calcualtion
-        this.delivery(this.subtotal);
+        this.delivery(this.subtotal-this.offer);
         this.total = this.subtotal+this.deliveryCharge-this.offer;
         this.total = parseFloat(this.total).toFixed(2);
     }
