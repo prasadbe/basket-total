@@ -4,7 +4,6 @@ class Basket {
         this.products = products.products;
         this.total = 0;
         this.subtotal = 0;
-        this.couponApplied = ''
         this.offer = 0;
         this.deliveryCharge = 0;
         this.cart = [];
@@ -45,12 +44,12 @@ class Basket {
         //basket calculation with coupon
         this.cart.map((v, k) => {
             this.subtotal += v.price;
-            if( this.couponApplied && this.couponApplied == v.code && !offer) {
-                offerProduct[v.code] = v.offer;
+            if(!offer && this.products[v.code].offer &&  this.products[v.code].offer.type) {
+                offerProduct = {...this.products[v.code].offer, code: v.code} ;
                 offer = true;
-            } else if (this.couponApplied && offer && offerProduct[v.code].type && (offerProduct[v.code].type == 'any' || 
-                (offerProduct[v.code].type == 'same' && v.code == this.couponApplied))) {
-                this.offer  = parseFloat(v.price - (v.price * (offerProduct[this.couponApplied].percentage / 100)))
+            } else if (offer && offerProduct.type &&  (offerProduct.type == 'any' || 
+                (offerProduct.type == 'same' && v.code == offerProduct.code))) {
+                this.offer  = parseFloat(v.price - (v.price * (offerProduct.percentage / 100)))
                 offer = false;
             }
             return v;

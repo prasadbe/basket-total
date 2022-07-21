@@ -25,17 +25,12 @@ let basket = new Basket(products);
             for(let product of products) {
                 basket.add(product);
             }
-            rl.question("Please enter the coupon you have:", (data) => {
-                if(data != '') {
-                    basket.coupon(data);
-                }
-                basket.tally()
-                console.log('Sub Total:', basket.subtotal.toFixed(2))
-                console.log('Delivery Charge:', basket.deliveryCharge.toFixed(2))
-                console.log('Discount:', basket.offer.toFixed(2))
-                console.log('total:', basket.total)
-                rl.close();
-             });
+            basket.tally()
+            console.log('Sub Total:', basket.subtotal.toFixed(2))
+            console.log('Delivery Charge:', basket.deliveryCharge.toFixed(2))
+            console.log('Discount:', basket.offer.toFixed(2))
+            console.log('total:', basket.total)
+            rl.close();
          });
          
     }
